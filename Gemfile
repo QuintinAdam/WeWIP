@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.0.3"
+ruby "3.1"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.1"
@@ -51,6 +51,8 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "annotate", github: "excid3/annotate_models", branch: "rails7"
+  gem "letter_opener_web", "~> 2.0"
 end
 
 group :development do
@@ -58,7 +60,7 @@ group :development do
   gem "web-console"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
+  gem "rack-mini-profiler"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
@@ -70,3 +72,14 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "acts_as_tenant", "~> 0.5.1"
+gem "devise"
+gem "omniauth"
+gem "omniauth-rails_csrf_protection"
+gem "prefixed_ids", "~> 1.2"
+gem "pretender"
+gem 'cancancan'
+gem 'normalizy'
+gem 'sidekiq'
+gem "responders"
