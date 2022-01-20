@@ -84,3 +84,7 @@ gem 'normalizy'
 gem 'sidekiq'
 gem 'responders'
 gem 'name_of_person'
+gem 'figaro'
+
+gem 'omniauth-telegram'
+gem 'omniauth-github'
