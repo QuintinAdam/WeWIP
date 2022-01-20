@@ -53,6 +53,9 @@ group :development, :test do
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]
   gem 'annotate', github: 'excid3/annotate_models', branch: 'rails7'
   gem 'letter_opener_web', '~> 2.0'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'ffaker'
 end
 
 group :development do
@@ -75,7 +78,6 @@ end
 
 gem 'acts_as_tenant', '~> 0.5.1'
 gem 'devise'
-gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
 gem 'prefixed_ids', '~> 1.2'
 gem 'pretender'
@@ -86,5 +88,8 @@ gem 'responders'
 gem 'name_of_person'
 gem 'figaro'
 
+gem 'omniauth'
 gem 'omniauth-telegram'
 gem 'omniauth-github'
+
+gem 'hot-glue'
