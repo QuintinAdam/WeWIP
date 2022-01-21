@@ -91,5 +91,3 @@ gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-telegram'
 gem 'omniauth-github'
-
-gem 'hot-glue'
