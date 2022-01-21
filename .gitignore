@@ -37,3 +37,9 @@
 
 # Ignore application configuration
 /config/application.yml
+
+/config/credentials/development.key
+
+/config/credentials/test.key
+
+/config/credentials/production.key
