@@ -42,6 +42,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   # Associations
+  has_many :user_connected_accounts, dependent: :destroy
 
   # We don't need users to confirm their email address on create,
   # just when they change it

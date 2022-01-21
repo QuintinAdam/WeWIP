@@ -318,6 +318,8 @@ GEM
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
+    sentry-raven (3.1.2)
+      faraday (>= 1.0)
     sidekiq (6.3.1)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
@@ -387,6 +389,7 @@ DEPENDENCIES
   responders
   rspec-rails
   selenium-webdriver
+  sentry-raven
   sidekiq
   stimulus-rails
   turbo-rails

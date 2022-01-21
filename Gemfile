@@ -78,7 +78,6 @@ end
 
 gem 'acts_as_tenant', '~> 0.5.1'
 gem 'devise'
-gem 'omniauth-rails_csrf_protection'
 gem 'prefixed_ids', '~> 1.2'
 gem 'pretender'
 gem 'cancancan'
@@ -89,5 +88,8 @@ gem 'name_of_person'
 gem 'figaro'
 
 gem 'omniauth'
+gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-telegram'
 gem 'omniauth-github'
+
+gem 'sentry-raven'
