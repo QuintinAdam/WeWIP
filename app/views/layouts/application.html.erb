@@ -37,24 +37,22 @@
                 </a>
               </li>
               <li>
-                <%= link_to teams_path, class: 'nav-link px-0 align-middle', data: {'bd-toggle' => 'collapse'} do %>
-                  <i class="fad fa-users"></i>
-                  <span class="ms-1 d-none d-sm-inline">Teams</span>
+                <%= link_to projects_path, class: 'nav-link px-0 align-middle', data: {'bd-toggle' => 'collapse'} do %>
+                  <i class="fad fa-tasks"></i>
+                  <span class="ms-1 d-none d-sm-inline">Projects</span>
                 <% end %>
-                <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                  <li class="w-100">
-                    <a href="#" class="nav-link px-0">
-                      <span class="d-none d-sm-inline">Team</span>
-                      1
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" class="nav-link px-0">
-                      <span class="d-none d-sm-inline">Team</span>
-                      2
-                    </a>
-                  </li>
-                </ul>
+                <% if @projects.present? %>
+                  <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                    <% @projects.each_with_index do |project, index| %>
+                      <li class="w-100">
+                        <%= link_to project_path(project), class: 'nav-link px-0' do %>
+                          <span class="d-none d-sm-inline"><%= project.name %></span>
+                          <span class="d-inline d-none"><%= index %></span>
+                        <% end %>
+                      </li>
+                    <% end %>
+                  </ul>
+                <% end %>
               </li>
 
             </ul>

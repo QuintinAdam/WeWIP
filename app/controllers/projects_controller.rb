@@ -2,23 +2,14 @@ class ProjectsController < ApplicationController
   helper :hot_glue
   include HotGlue::ControllerHelper
 
-  
-  
+
   before_action :load_project, only: [:show, :edit, :update, :destroy]
   after_action -> { flash.discard }, if: -> { request.format.symbol ==  :turbo_stream }
 
-
-
-  
-
-  
-
-
-
   def load_project
-    @project = Project.find(params[:id])
+    @project = Project.friendly.find(params[:id])
   end
-  
+
 
   def load_all_projects
     @projects = Project.page(params[:page])
@@ -31,9 +22,9 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def new 
+  def new
     @project = Project.new
-   
+
     respond_to do |format|
       format.html
     end
@@ -112,5 +103,3 @@ class ProjectsController < ApplicationController
     ""
   end
 end
-
-

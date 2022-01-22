@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-
+  resources :messages
+  resources :projects
   devise_for :users,
     controllers: {
       omniauth_callbacks: "users/omniauth_callbacks",
