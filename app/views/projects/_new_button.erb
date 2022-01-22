@@ -1,0 +1,5 @@
+<%= turbo_frame_tag "project-new" do %>
+  <div>
+    <%= link_to "New Project",  new_project_path, disable_with: "Loading...", class: "new-project-button btn btn-primary pull-right  " %>
+  </div>
+<% end %>

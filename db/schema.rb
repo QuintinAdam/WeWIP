@@ -65,31 +65,11 @@ ActiveRecord::Schema.define(version: 2022_01_22_042930) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "slug"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["slug"], name: "index_projects_on_slug"
-  end
-
-  create_table "team_members", force: :cascade do |t|
-    t.bigint "team_id", null: false
-    t.bigint "user_id", null: false
-    t.jsonb "role"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["team_id"], name: "index_team_members_on_team_id"
-    t.index ["user_id"], name: "index_team_members_on_user_id"
-  end
-
-  create_table "teams", force: :cascade do |t|
-    t.string "name"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "slug"
-    t.index ["slug"], name: "index_teams_on_slug", unique: true
-    t.index ["user_id"], name: "index_teams_on_user_id"
   end
 
   create_table "user_connected_accounts", force: :cascade do |t|
@@ -133,8 +113,5 @@ ActiveRecord::Schema.define(version: 2022_01_22_042930) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "team_members", "teams"
-  add_foreign_key "team_members", "users"
-  add_foreign_key "teams", "users"
   add_foreign_key "user_connected_accounts", "users"
 end

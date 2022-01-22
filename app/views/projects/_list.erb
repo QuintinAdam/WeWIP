@@ -1,0 +1,29 @@
+<%= turbo_frame_tag "projects-list"   do %>
+  <div class="container-fluid scaffold-list">
+    <h4>PROJECTS</h4>
+
+    <%= render partial: "projects/new_button", locals: {}%><br />
+
+    
+    <div class="row scaffold-heading-row">
+      <div class='col-md-1'>Name</div>
+      
+
+      
+
+      <div class=' scaffold-col-heading scaffold-col-heading-buttons col-md-2' >
+
+      </div>
+    </div>
+      <% if projects.empty? %>
+    <div>
+        None
+    </div>
+      <% end %>
+      <% projects.each do |project| %>
+        <%= render partial: 'projects/line', locals: {project: project } %>
+      <% end %>
+    
+  
+  </div>
+<% end %>

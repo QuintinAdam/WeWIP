@@ -1,0 +1,20 @@
+<%= link_to "<i class='fa fa-arrow-circle-left  2x'></i> Back to list".html_safe, projects_path %>
+
+<%= turbo_frame_tag "project__#{@project.id}" do  %>
+
+  <div class="cell editable" style="position: relative;">
+
+    <% if @project.errors.any? %>
+      <%= render(partial: "errors", locals: {resource: @project }) %>
+    <% end %>
+
+    <h2>Editing <%= @project.name %></h2>
+    <%= form_with model: @project, url: project_path(@project) do |f| %>
+    <%=  render partial: "form",  locals: {:project => @project, f: f} %>
+    <% end %>
+
+  </div>
+
+<% end %>
+
+
