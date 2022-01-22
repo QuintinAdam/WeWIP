@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-
-  root to: "home#index"
+  resources :teams
   devise_for :users,
     controllers: {
       omniauth_callbacks: "users/omniauth_callbacks",
@@ -10,8 +9,5 @@ Rails.application.routes.draw do
       sign_in: 'sign-in', sign_out: 'sign-out',
       password: 'password', registration: '', sign_up: 'sign-up'
     }
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  root to: "home#index"
 end

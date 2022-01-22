@@ -43,6 +43,9 @@ class User < ApplicationRecord
 
   # Associations
   has_many :user_connected_accounts, dependent: :destroy
+  has_many :owned_teams, class_name: "Team"
+  has_many :team_members
+  has_many :teams, through: :team_members
 
   # We don't need users to confirm their email address on create,
   # just when they change it

@@ -1,0 +1,11 @@
+
+<%= turbo_frame_tag "team__#{ team.id }" do  %>
+  <div class='row scaffold-row' data-id='<%= team.id %>' data-edit='false'>
+    <%= render partial: 'teams/show', locals: { team: team } %>
+
+  </div>
+<% end %>
+
+
+
+
