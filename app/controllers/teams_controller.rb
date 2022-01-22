@@ -8,7 +8,7 @@ class TeamsController < ApplicationController
   after_action -> { flash.discard }, if: -> { request.format.symbol ==  :turbo_stream }
 
   def load_team
-    @team = current_user.teams.find(params[:id])
+    @team = current_user.teams.friendly.find(params[:id])
   end
 
   def load_all_teams
@@ -23,7 +23,7 @@ class TeamsController < ApplicationController
   end
 
   def new
-    @team = Team.new(user: current_user)
+    @team = Team.new(owner: current_user)
 
     respond_to do |format|
       format.html
@@ -31,7 +31,7 @@ class TeamsController < ApplicationController
   end
 
   def create
-    modified_params = modify_date_inputs_on_params(team_params.dup.merge!(user: current_user ) , current_user)
+    modified_params = modify_date_inputs_on_params(team_params.dup.merge!(owner: current_user ) , current_user)
     @team = Team.create(modified_params)
 
     if @team.save

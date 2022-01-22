@@ -19,10 +19,22 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Team < ApplicationRecord
-  extend FriendlyId
   has_prefix_id :team
-  friendly_id :name, use: :slugged
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :history]
+
+  normalizy :name
+
+  # Associations
   belongs_to :owner, class_name: "User", foreign_key: :user_id
   has_many :team_members, dependent: :destroy
   has_many :members, through: :team_members, source: :user
+
+  validates_uniqueness_of :name, case_sensitive: false
+
+  private
+
+  def should_generate_new_friendly_id?
+    slug.blank? || self.name_changed?
+  end
 end

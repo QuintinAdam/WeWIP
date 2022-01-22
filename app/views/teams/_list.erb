@@ -2,29 +2,20 @@
   <div class="container-fluid scaffold-list">
     <h4>TEAMS</h4>
 
-    <%= render partial: "teams/new_button", locals: {}%><br />
-
-    
+    <%= render partial: "teams/new_button", locals: {} %><br/>
     <div class="row scaffold-heading-row">
       <div class='col-md-1'>Name</div>
-<div class='col-md-1'>Slug</div>
-      
-
-      
-
-      <div class=' scaffold-col-heading scaffold-col-heading-buttons col-md-2' >
-
-      </div>
+      <div class=' scaffold-col-heading scaffold-col-heading-buttons col-md-2'></div>
     </div>
-      <% if teams.empty? %>
-    <div>
+    <% if teams.empty? %>
+      <div>
         None
-    </div>
-      <% end %>
-      <% teams.each do |team| %>
-        <%= render partial: 'teams/line', locals: {team: team } %>
-      <% end %>
-    
-  
+      </div>
+    <% end %>
+    <% teams.each do |team| %>
+      <%= render partial: 'teams/line', locals: {team: team } %>
+    <% end %>
+
+
   </div>
 <% end %>
