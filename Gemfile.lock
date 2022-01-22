@@ -425,7 +425,6 @@ DEPENDENCIES
   rack-mini-profiler
   rails (~> 7.0.1)
   redis (~> 4.0)
-  responders
   rspec-rails
   selenium-webdriver
   sentry-raven

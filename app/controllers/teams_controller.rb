@@ -36,6 +36,8 @@ class TeamsController < ApplicationController
 
     if @team.save
       flash[:notice] = "Successfully created #{@team.name}"
+      # adds current_user as an admin mean member
+      current_user.team_members.create(team: @team, role: [:admin])
       load_all_teams
       respond_to do |format|
         format.turbo_stream
@@ -69,7 +71,6 @@ class TeamsController < ApplicationController
       flash[:notice] = (flash[:notice] || "") << "Saved #{@team.name}"
     else
       flash[:alert] = (flash[:alert] || "") << "Team could not be saved."
-
     end
 
     respond_to do |format|
