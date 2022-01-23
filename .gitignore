@@ -43,5 +43,3 @@
 /config/credentials/test.key
 
 /config/credentials/production.key
-
-config/hot_glue.yml

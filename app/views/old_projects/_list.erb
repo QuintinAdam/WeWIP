@@ -13,12 +13,7 @@
         <% end %>
         <%= link_to "Edit <i class='fa fa-1x fa-list-alt'></i>".html_safe, edit_project_path(@project), 'data-turbo' => 'false', disable_with: "Loading...", class: "edit-project-button btn btn-primary btn-sm" %>
       </div>
-      <% @project.messages.order(created_at: :desc).each do |message| %>
-        <p><%= message.content  %></p>
-        <p><%= message.author  %></p>
-      <% end %>
 
-      <%= render 'messages/form' %>
 
     <% else %>
       <% @projects.each do |project| %>
