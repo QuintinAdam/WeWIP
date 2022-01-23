@@ -12,11 +12,21 @@
           <span class="ms-1 d-none d-sm-inline">Home</span>
         </a>
       </li>
+      <% if can? :manage, User %>
+        <li>
+
+          <%= link_to users_path, class: 'nav-link px-0 align-middle' do %>
+            <i class="fad fa-users"></i>
+            <span class="ms-1 d-none d-sm-inline">Team</span>
+          <% end %>
+        </li>
+      <% end %>
       <li>
         <%= link_to projects_path, class: 'nav-link px-0 align-middle', data: {'bd-toggle' => 'collapse'} do %>
           <i class="fad fa-tasks"></i>
           <span class="ms-1 d-none d-sm-inline">Projects</span>
         <% end %>
+
         <% if @projects.present? %>
           <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
             <% @projects.each_with_index do |project, index| %>
@@ -44,7 +54,7 @@
 
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-          <% if current_user.admin? %>
+          <% if can? :manage, User %>
             <li>
               <%= link_to 'Team', users_path, class: 'dropdown-item' %>
             </li>
@@ -56,7 +66,7 @@
             <hr class="dropdown-divider">
           </li>
           <li>
-            <%= link_to 'Sign Out', destroy_user_session_path, data: { "turbo-method": :delete }, class: 'dropdown-item' %>
+            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, data: { "turbo-method": :delete }, class: 'dropdown-item' %>
 
           </li>
         </ul>
