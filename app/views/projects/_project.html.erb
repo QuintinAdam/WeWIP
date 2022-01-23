@@ -12,8 +12,8 @@
   <% if controller_name == 'tasks' %>
     <%= render 'tasks/form' %>
     <div id="tasks">
+      <%= render @project.tasks.pending.order(created_at: :desc) %>
 
-      <%= render @project.tasks.order(created_at: :desc) %>
     </div>
 
   <% else %>

@@ -26,6 +26,7 @@ class Task < ApplicationRecord
   belongs_to :user
   belongs_to :project
 
+  scope :pending, -> {where(completed_at: nil)}
   after_commit on: :create do
     broadcast_prepend_to project, partial: "tasks/task", locals: {task: self}, target: "tasks"
   end

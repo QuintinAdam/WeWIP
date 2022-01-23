@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :messages, only: [:index, :create]
-    resources :tasks, only: [:index, :create]
+    resources :tasks, only: [:index, :create] do
+      post 'complete', to: 'tasks#complete'
+    end
   end
   devise_for :users,
     controllers: {
