@@ -3,10 +3,14 @@
   <strong><%= @project.name %></strong>
 </h1>
 <div>
-  <%= link_to "Edit this project", edit_project_path(@project), class: 'btn btn-primary' %>
+  <% if can? :update, @project %>
+    <%= link_to "Edit this project", edit_project_path(@project), class: 'btn btn-primary' %>
+  <% end %>
 
+  <% if can? :destroy, @project %>
 
-  <%= button_to "Destroy this project", @project, method: :delete, class: 'btn btn-danger' %>
+    <%= button_to "Destroy this project", @project, method: :delete, class: 'btn btn-danger' %>
+  <% end %>
 </div>
 
 <%= render @project %>
