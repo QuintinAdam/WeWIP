@@ -1,6 +1,10 @@
-<turbo-frame id="<%= dom_id(@project, :form) %>">
-  <%= form_for [@project, Task.new] do |f| %>
-    <%= f.text_field :content, placeholder: "Write a todo..." %>
-    <%= f.button "Create", class: 'btn btn-primary' %>
-  <% end %>
-</turbo-frame>
+<% if can? :create, Task %>
+
+  <turbo-frame id="<%= dom_id(@project, :form) %>">
+    <%= form_for [@project, Task.new] do |f| %>
+      <%= f.text_field :content, placeholder: "Write a todo..." %>
+      <%= f.button "Create", class: 'btn btn-primary' %>
+    <% end %>
+  </turbo-frame>
+
+<% end %>
