@@ -1,0 +1,4 @@
+<%= form_for [@project, Message.new] do |f| %>
+  <%= f.text_field :content, placeholder: "Message" %>
+  <%= f.button "Send" %>
+<% end %>

@@ -2,28 +2,30 @@
   <div class="container-fluid scaffold-list">
     <h4>PROJECTS</h4>
 
-    <%= render partial: "projects/new_button", locals: {}%><br />
+    <%= render partial: "projects/new_button", locals: {}%><br/>
 
-    
-    <div class="row scaffold-heading-row">
-      <div class='col-md-1'>Name</div>
-      
-
-      
-
-      <div class=' scaffold-col-heading scaffold-col-heading-buttons col-md-2' >
-
+    <div class="row scaffold-heading-row"></div>
+    <% if @project.present? %>
+      <h5><%= @project.name %></h5>
+      <div class=" scaffold-line-buttons  col-md-2">
+        <%= form_with url: project_path(@project), html: {data: {'turbo-confirm': "Are you sure you want to delete #{ @project.name }?"}, style: "display: inline-block;"}, method: :delete do |f| %>
+          <%= f.submit "Delete".html_safe,  class: "delete-project-button btn btn-danger btn-sm" %>
+        <% end %>
+        <%= link_to "Edit <i class='fa fa-1x fa-list-alt'></i>".html_safe, edit_project_path(@project), 'data-turbo' => 'false', disable_with: "Loading...", class: "edit-project-button btn btn-primary btn-sm" %>
       </div>
-    </div>
-      <% if projects.empty? %>
-    <div>
-        None
-    </div>
+      <% @project.messages.order(created_at: :desc).each do |message| %>
+        <p><%= message.content  %></p>
+        <p><%= message.author  %></p>
       <% end %>
-      <% projects.each do |project| %>
+
+      <%= render 'messages/form' %>
+
+    <% else %>
+      <% @projects.each do |project| %>
         <%= render partial: 'projects/line', locals: {project: project } %>
+
       <% end %>
-    
-  
+
+    <% end %>
   </div>
 <% end %>

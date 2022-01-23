@@ -13,12 +13,13 @@
 #  index_projects_on_slug  (slug)
 #
 class Project < ApplicationRecord
-  has_prefix_id :pro
+  has_prefix_id :p
   extend FriendlyId
   friendly_id :name, use: [:slugged, :history]
   normalizy :name
 
   # Associations
+  has_many :messages, dependent: :destroy
 
 
   validates_uniqueness_of :name, case_sensitive: false

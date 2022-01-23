@@ -1,1 +1,8 @@
 <h1><%= @project.name %></h1>
+
+<% @project.messages.order(created_at: :desc).each do |message| %>
+  <p><%= message.content  %></p>
+  <p><%= message.author  %></p>
+<% end %>
+
+<%= render 'messages/form' %>

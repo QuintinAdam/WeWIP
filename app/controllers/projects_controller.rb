@@ -51,9 +51,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    respond_to do |format|
-      format.html
-    end
+    load_all_projects
+    render :index
   end
 
   def edit

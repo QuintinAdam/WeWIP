@@ -1,11 +1,1 @@
-
-<%= turbo_frame_tag "project__#{ project.id }" do  %>
-  <div class='row scaffold-row' data-id='<%= project.id %>' data-edit='false'>
-    <%= render partial: 'projects/show', locals: { project: project } %>
-
-  </div>
-<% end %>
-
-
-
-
+<%= link_to project.name, project_path(project), class: 'col-md-2' %>
