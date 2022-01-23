@@ -20,6 +20,7 @@ class Project < ApplicationRecord
 
   # Associations
   has_many :messages, dependent: :destroy
+  has_many :tasks, dependent: :destroy
 
 
   validates_uniqueness_of :name, case_sensitive: false

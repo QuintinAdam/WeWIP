@@ -1,11 +1,26 @@
 <div id="<%= dom_id project %>">
-  <p>
-    <strong><%= project.name %></strong>
-  </p>
-  <%= render 'messages/form' %>
-  <div id="messages">
-    <%= turbo_stream_from project %>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <%=  link_to 'Messages', project_messages_path(project), class: "nav-link #{'active' if controller_name == 'messages' || controller_name == 'projects'}" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'Tasks', project_tasks_path(project), class: "nav-link #{'active' if controller_name == 'tasks'}" %>
+    </li>
+  </ul>
 
-    <%= render @project.messages.order(created_at: :desc) %>
-  </div>
+  <%= turbo_stream_from project %>
+  <% if controller_name == 'tasks' %>
+    <%= render 'tasks/form' %>
+    <div id="tasks">
+
+      <%= render @project.tasks.order(created_at: :desc) %>
+    </div>
+
+  <% else %>
+    <%= render 'messages/form' %>
+    <div id="messages">
+      <%= render @project.messages.order(created_at: :desc) %>
+    </div>
+  <% end %>
+
 </div>

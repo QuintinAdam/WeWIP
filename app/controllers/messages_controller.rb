@@ -1,6 +1,12 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_project, only: :create
+  before_action :set_project
+
+  def index
+    @projects = Project.all
+    render template: "projects/show"
+  end
+
   def create
     @project.messages.create(message_params.merge(author: current_user.name, user: current_user))
     render partial: 'messages/form'
