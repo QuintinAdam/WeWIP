@@ -4,7 +4,6 @@ class MessagesController < ApplicationController
   authorize_resource
 
   def index
-    @projects = Project.all
     render template: "projects/show"
   end
 

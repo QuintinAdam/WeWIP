@@ -9,4 +9,15 @@ module ApplicationHelper
       "#{created_at.strftime('%B %e')}"
     end
   end
+
+  def find_projects
+    # normally would be scoped per team
+    last_modified = Project.order(:updated_at).last
+    last_modified_str = last_modified.updated_at.utc.to_s(:number)
+    @project_list ||= Rails.cache.fetch("all_projects/#{last_modified_str}", expires_in: 12.hours) do
+      Project.all.pluck(:id, :name, :slug)
+    end
+  end
+
+
 end

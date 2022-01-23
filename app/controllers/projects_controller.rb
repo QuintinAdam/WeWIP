@@ -9,7 +9,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @projects = Project.all
     respond_with(@project)
   end
 

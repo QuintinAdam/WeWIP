@@ -9,20 +9,13 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <script src="https://kit.fontawesome.com/6a4b034cbc.js" crossorigin="anonymous"></script>
-    <script>
-      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark')
-      } else {
-        document.documentElement.classList.remove('dark')
-      }
-    </script>
-
   </head>
 
   <body class='dark'>
     <div class="container-fluid">
       <div class="row flex-nowrap">
         <%= render 'layouts/sidebar' %>
+
         <div class="col py-3">
 
           <%= render partial: 'layouts/pretender' %>

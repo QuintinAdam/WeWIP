@@ -1,0 +1,9 @@
+<% id, name, slug = project_list_array %>
+<li class="w-100">
+  <%= link_to project_path(slug), class: 'nav-link px-0' do %>
+
+    <span class="d-none d-sm-inline"><%= name %></span>
+    <span class="d-inline d-sm-none">#<%= name.first(2).upcase %></span>
+
+  <% end %>
+</li>
