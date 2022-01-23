@@ -24,4 +24,8 @@ class Message < ApplicationRecord
   has_prefix_id :m
   belongs_to :user
   belongs_to :project
+
+  after_commit on: :create do
+    broadcast_prepend_to project, partial: "messages/message", locals: {message: self}, target: "messages"
+  end
 end

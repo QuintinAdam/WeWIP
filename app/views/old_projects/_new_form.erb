@@ -1,8 +1,0 @@
-<%= turbo_frame_tag "project-new" do %>
-  <h3>
-    New Project
-  </h3>
-  <%= form_with model: project, url: projects_path(), method: "post" do  |f| %>
-    <%=  render partial: "projects/form", locals: { project:  project, f: f} %>
-  <% end %>
-<% end %>
