@@ -1,104 +1,48 @@
 class ProjectsController < ApplicationController
-  helper :hot_glue
-  include HotGlue::ControllerHelper
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
 
-
-  before_action :load_project, only: [:show, :edit, :update, :destroy]
-  after_action -> { flash.discard }, if: -> { request.format.symbol ==  :turbo_stream }
-
-  def load_project
-    @project = Project.friendly.find(params[:id])
-  end
-
-
-  def load_all_projects
-    @projects = Project.page(params[:page])
-  end
+  respond_to :html
 
   def index
-    load_all_projects
-    respond_to do |format|
-       format.html
-    end
+    @projects = Project.all
+    respond_with(@projects)
+  end
+
+  def show
+    @projects = Project.all
+    respond_with(@project)
   end
 
   def new
     @project = Project.new
-
-    respond_to do |format|
-      format.html
-    end
-  end
-
-  def create
-    modified_params = modify_date_inputs_on_params(project_params.dup )
-    @project = Project.create(modified_params)
-
-    if @project.save
-      flash[:notice] = "Successfully created #{@project.name}"
-      load_all_projects
-      respond_to do |format|
-        format.turbo_stream
-        format.html { redirect_to projects_path }
-      end
-    else
-      flash[:alert] = "Oops, your project could not be created."
-      respond_to do |format|
-        format.turbo_stream
-        format.html
-      end
-    end
-  end
-
-  def show
-    load_all_projects
-    render :index
+    respond_with(@project)
   end
 
   def edit
-    respond_to do |format|
-      format.turbo_stream
-      format.html
-    end
+  end
+
+  def create
+    @project = Project.new(project_params)
+    flash[:notice] = 'Project was successfully created.' if @project.save
+    respond_with(@project)
   end
 
   def update
-
-    if @project.update(modify_date_inputs_on_params(project_params))
-      flash[:notice] = (flash[:notice] || "") << "Saved #{@project.name}"
-    else
-      flash[:alert] = (flash[:alert] || "") << "Project could not be saved."
-
-    end
-
-    respond_to do |format|
-      format.turbo_stream
-      format.html
-    end
+    flash[:notice] = 'Project was successfully updated.' if @project.update(project_params)
+    respond_with(@project)
   end
 
   def destroy
-    begin
-      @project.destroy
-    rescue StandardError => e
-      flash[:alert] = "Project could not be deleted"
+    @project.destroy
+    respond_with(@project)
+  end
+
+  private
+    def set_project
+      @project = Project.friendly.find(params[:id])
     end
-    load_all_projects
-    respond_to do |format|
-      format.turbo_stream
-      format.html { redirect_to projects_path }
+
+    def project_params
+      params.require(:project).permit(:name)
     end
-  end
-
-  def project_params
-    params.require(:project).permit( [:name] )
-  end
-
-  def default_colspan
-    1
-  end
-
-  def namespace
-    ""
-  end
 end

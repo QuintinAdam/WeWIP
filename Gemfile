@@ -95,4 +95,3 @@ gem 'omniauth-github'
 gem 'sentry-raven'
 
 gem 'friendly_id', '~> 5.4.0'
-gem 'hot-glue'
