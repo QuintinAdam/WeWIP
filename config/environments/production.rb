@@ -51,7 +51,7 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   config.cache_store = :redis_cache_store, { url: ENV["REDISTOGO_URL"] }
-  config.telegram_updates_controller.session_store = :redis_store, {
+  config.telegram_updates_controller.session_store = :redis_cache_store, {
     url: ENV['REDISTOGO_URL'],
     expires_in: 1.month,
   }
