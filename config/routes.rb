@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
   resources 'users', only: :index do
     post :impersonate, on: :member
@@ -20,5 +21,7 @@ Rails.application.routes.draw do
       password: 'password', registration: '', sign_up: 'sign-up'
     }
   telegram_webhook TelegramWebhooksController
+
+  mount GoodJob::Engine => 'good_job'
   root to: "home#index"
 end
