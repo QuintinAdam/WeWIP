@@ -83,7 +83,7 @@ gem 'pretender'
 gem 'cancancan'
 gem 'normalizy'
 gem 'sidekiq'
-# gem 'responders'
+gem 'responders'
 gem 'name_of_person'
 gem 'figaro'
 
