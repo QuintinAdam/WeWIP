@@ -51,6 +51,10 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   config.cache_store = :redis_cache_store, { url: ENV["REDISTOGO_URL"] }
+  config.telegram_updates_controller.session_store = :redis_store, {
+    url: ENV['REDISTOGO_URL'],
+    expires_in: 1.month,
+  }
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "team_wip_production"
