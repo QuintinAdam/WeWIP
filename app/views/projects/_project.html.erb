@@ -13,7 +13,6 @@
     <%= render 'tasks/form' %>
     <div id="tasks">
       <%= render @project.tasks.pending.order(created_at: :desc) %>
-
     </div>
 
   <% else %>

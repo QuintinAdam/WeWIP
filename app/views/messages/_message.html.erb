@@ -1,4 +1,7 @@
-<p class='m-0 fw-bold'><%= posted_at(message.created_at) %></p>
+<p class='m-0 fw-bold' data-timeago-datetime-value="<%= message.created_at %>"><%= posted_at(message.created_at) %></p>
+<time class='m-0 fw-bold' data-controller="timeago" data-timeago-datetime-value="<%= message.created_at %>"></time>
+
+
 <div class="card">
   <p class='fs-4 m-0 '><%= message.content  %></p>
   <p class='m-0 '><%= message.author  %></p>

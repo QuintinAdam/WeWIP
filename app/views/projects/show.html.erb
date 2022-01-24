@@ -1,16 +1,22 @@
 <%= link_to "<< Back to projects", projects_path %>
-<h1>
-  <strong><%= @project.name %></strong>
-</h1>
-<div>
+<div class='float-end'>
+
   <% if can? :update, @project %>
-    <%= link_to "Edit this project", edit_project_path(@project), class: 'btn btn-primary' %>
+    <%= link_to edit_project_path(@project), class: 'btn btn-primary' do %>
+
+      <i class="fad fa-edit fa-lg"></i>
+    <% end %>
   <% end %>
 
   <% if can? :destroy, @project %>
-
-    <%= button_to "Destroy this project", @project, method: :delete, class: 'btn btn-danger' %>
+    <a href="#" alt="Delete <%= @project.name %>" data-controller="confirmable" data-action="confirmable#click" data-confirmable-title-value="Delete this Project?" data-confirmable-message-value="<p>Are you sure you want to delete the project &quot;<%= @project.name %>&quot;?<p>" data-confirmable-ok-button-value="Delete Project" data-confirmable-url-value="<%= project_path(@project) %>" data-confirmable-method-value="delete" class="btn btn-danger">
+      <i class="fad fa-lg fa-trash"></i>
+    </a>
   <% end %>
 </div>
+<h1>
+  <strong><%= @project.name %></strong>
+</h1>
+
 
 <%= render @project %>

@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import ConfirmableController from "./confirmable_controller.js"
+application.register("confirmable", ConfirmableController)
+
+import TimeagoController from "./timeago_controller.js"
+application.register("timeago", TimeagoController)

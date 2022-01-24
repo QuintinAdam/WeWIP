@@ -9,6 +9,7 @@
     "bootstrap": "^5.1.3",
     "esbuild": "^0.14.11",
     "sass": "^1.49.0",
+    "stimulus-timeago": "^4.0.0",
     "trix": "^2.0.0-alpha.0"
   },
   "scripts": {
