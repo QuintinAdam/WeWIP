@@ -316,8 +316,7 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   config.omniauth :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET'], scope: "user"
-  # config.omniauth :telegram, ENV['BOT_NICKNAME'], ENV['BOT_SECRET'],
-    button_options: { 'request-access' => 'write' }
+  # config.omniauth :telegram, ENV['BOT_NICKNAME'], ENV['BOT_SECRET'], button_options: { 'request-access' => 'write' }
   if Rails.env.test?
     config.omniauth :developer
   end
