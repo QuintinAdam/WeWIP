@@ -1,11 +1,12 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
   authorize_resource
-  respond_to :html
+  respond_to :html, :json
 
   def index
     @projects = Project.all
     respond_with(@projects)
+
   end
 
   def show

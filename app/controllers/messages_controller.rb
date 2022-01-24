@@ -4,7 +4,12 @@ class MessagesController < ApplicationController
   authorize_resource
 
   def index
-    render template: "projects/show"
+    respond_to do |format|
+
+      format.html { render template: "projects/show" }
+      format.json {  @messages = @project.messages.order(created_at: :desc)}
+    end
+
   end
 
   def create

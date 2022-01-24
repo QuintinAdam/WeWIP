@@ -5,7 +5,11 @@ class TasksController < ApplicationController
   authorize_resource
 
   def index
-    render template: "projects/show"
+    respond_to do |format|
+      @tasks = @project.tasks.pending.order(created_at: :desc)
+      format.html { render template: "projects/show" }
+      format.json { }
+    end
   end
 
   def create

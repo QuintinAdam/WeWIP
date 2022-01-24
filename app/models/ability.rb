@@ -3,6 +3,8 @@
 class Ability
   include CanCan::Ability
 
+    # TODO: split into per models
+
     def initialize(user)
       return unless user.present?
       if user.admin?
