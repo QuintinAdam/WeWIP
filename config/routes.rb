@@ -19,5 +19,6 @@ Rails.application.routes.draw do
       sign_in: 'sign-in', sign_out: 'sign-out',
       password: 'password', registration: '', sign_up: 'sign-up'
     }
+  telegram_webhook TelegramWebhooksController
   root to: "home#index"
 end
