@@ -89,7 +89,7 @@ gem 'figaro'
 
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
-gem 'omniauth-telegram'
+# gem 'omniauth-telegram'
 gem 'omniauth-github'
 
 gem 'sentry-raven'
