@@ -94,4 +94,7 @@ Rails.application.configure do
     :authentication => :plain,
   }
   ActionMailer::Base.delivery_method = :smtp
+
 end
+Rails.application.routes.default_url_options[:host] = 'www.wewip.app'
+Rails.application.routes.default_url_options[:protocol] = 'https'

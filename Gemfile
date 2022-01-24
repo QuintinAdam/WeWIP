@@ -82,8 +82,9 @@ gem 'prefixed_ids', '~> 1.2'
 gem 'pretender'
 gem 'cancancan'
 gem 'normalizy'
-gem 'sidekiq'
 gem 'responders'
+gem 'sucker_punch'
+
 gem 'name_of_person'
 gem 'figaro'
 
@@ -95,3 +96,5 @@ gem 'omniauth-github'
 gem 'sentry-raven'
 
 gem 'friendly_id', '~> 5.4.0'
+gem 'telegram-bot', github: 'telegram-bot-rb/telegram-bot', branch: 'master'
+gem 'telegram-bot-types'
