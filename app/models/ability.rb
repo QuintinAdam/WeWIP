@@ -16,7 +16,7 @@ class Ability
       return unless user.member?
         #  memebrs +
         can :manage, Task, user: user
-        can :manage, Messages, user: user
+        can :manage, Message, user: user
       end
 
     # See the wiki for details:
