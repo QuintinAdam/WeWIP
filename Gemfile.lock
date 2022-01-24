@@ -233,8 +233,6 @@ GEM
     omniauth-rails_csrf_protection (1.0.0)
       actionpack (>= 4.2)
       omniauth (~> 2.0)
-    omniauth-telegram (0.2.1)
-      omniauth (>= 1.0)
     orm_adapter (0.5.0)
     pg (1.2.3)
     prefixed_ids (1.2.2)
@@ -380,7 +378,6 @@ DEPENDENCIES
   omniauth
   omniauth-github
   omniauth-rails_csrf_protection
-  omniauth-telegram
   pg (~> 1.1)
   prefixed_ids (~> 1.2)
   pretender
