@@ -9,11 +9,11 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
     respond_with :message, text: t('.content')
   end
 
-  def message!(message, *args)
+  def message!(*args)
     if args.any?
-      BotMessageCreateJob.perform_later(message['text'], from['username'])
+      BotMessageCreateJob.perform_later(args.join(' '), from['username'])
       # respond_with :message, text: t('.notice')
-      respond_with :message, text: "Echo: #{message['text']}"
+      respond_with :message, text: "Echo: #{args.join(' ')}"
     else
       respond_with :message, text: t('.prompt')
       # save_context :memo!
