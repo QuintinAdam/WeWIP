@@ -9,7 +9,7 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
     respond_with :message, text: t('.content')
   end
 
-  def message!(message)
+  def message!(message, *args)
     if args.any?
       BotMessageCreateJob.perform_later(message['text'], from['username'])
       # respond_with :message, text: t('.notice')
