@@ -22,6 +22,5 @@ Rails.application.routes.draw do
     }
   telegram_webhook TelegramWebhooksController
 
-  mount GoodJob::Engine => 'good_job'
   root to: "home#index"
 end

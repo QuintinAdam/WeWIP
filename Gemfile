@@ -83,8 +83,8 @@ gem 'pretender'
 gem 'cancancan'
 gem 'normalizy'
 gem 'responders'
-# gem 'sucker_punch'
-gem 'good_job'
+gem 'sucker_punch'
+# gem 'good_job'
 
 
 gem 'name_of_person'
