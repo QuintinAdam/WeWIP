@@ -7,4 +7,5 @@ class BotMessageCreateJob < ApplicationJob
       bot.messages.create(content: content, author: author, project: Project.last)
     end
   end
+
 end
