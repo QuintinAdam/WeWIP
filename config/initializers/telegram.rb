@@ -1,1 +1,1 @@
-Telegram::Bot::Client.typed_response!
+# Telegram::Bot::Client.typed_response!
