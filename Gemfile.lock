@@ -358,8 +358,6 @@ GEM
     stimulus-rails (1.0.2)
       railties (>= 6.0.0)
     strscan (3.0.1)
-    sucker_punch (3.0.1)
-      concurrent-ruby (~> 1.0)
     telegram-bot-types (0.6.3)
       virtus (~> 1.0)
     thor (1.2.1)
@@ -434,7 +432,6 @@ DEPENDENCIES
   selenium-webdriver
   sentry-raven
   stimulus-rails
-  sucker_punch
   telegram-bot!
   telegram-bot-types
   turbo-rails

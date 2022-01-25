@@ -36,7 +36,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :omniauthable
 
-  enum role: {guest: 0, member: 10, admin: 99}
+  enum role: {guest: 0, member: 10, admin: 99}, _default: :member
 
   has_person_name
 

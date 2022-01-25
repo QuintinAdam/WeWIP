@@ -10,6 +10,11 @@ admin = User.find_or_create_by(email: 'admin@admin.com') do |a|
   a.password = 'password'
 end
 admin.admin!
+bot = User.find_or_create_by(email: 'bot@bot.com') do |a|
+  a.name =  'WeWIP'
+  a.password = 'password'
+end
+bot.admin!
 member = User.find_or_create_by(email: 'member@member.com') do |a|
   a.name =  'Happy Member'
   a.password = 'password'

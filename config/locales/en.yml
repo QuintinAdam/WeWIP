@@ -2,9 +2,6 @@ en:
   telegram_webhooks:
     action_missing:
       command: Can not perform %{command}
-    callback_query:
-      alert: This is ALERT!
-      no_alert: Simple answer
     help:
       content: |
         Available cmds:
